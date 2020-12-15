@@ -1,16 +1,36 @@
-import * as React from "react";
-import { View, Text } from "react-native";
+import React, { Component } from "react";
+import { 
+  View, 
+  Text,
+  FlatList,
+  TextInput,
+  TouchableOpacity, 
+  Button,
+} from "react-native";
 
-export default function App() {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Universal React with Expo</Text>
-    </View>
-  );
+//Source Files
+import Input from "./src/input";
+
+//Import Styles
+import styles from './src/styles';
+
+
+class App extends Component {
+  
+  
+  render() {
+    return (
+
+      <View style={styles.container}>
+        <Input/>
+
+        
+      
+      </View>
+
+
+    );
+  }
 }
+
+export default App;
