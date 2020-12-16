@@ -5,15 +5,6 @@ const styles = StyleSheet.create({
         backgroundColor: "#FBFAFA",
         flex: 1,
         justifyContent: "center",
-        alignItems: "center",
-	},
-	row: {
-		flex: 1,
-        alignItems: "center",
-	},
-	text: {
-		fontSize: 20,
-		marginBottom: 15,
 		alignItems: "center",
 	},
 	inputWrapper: {
@@ -22,15 +13,36 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
 	},
+	totalbill: {
+		flex: 2,
+		justifyContent: 'center',
+	},
 	input: {
 		width: '100%',
-		backgroundColor: '#f2f2f2',
+		flexDirection: 'row',
+	},
+	inputname: {
+		width: '75%',
+		borderWidth: 2,
+		backgroundColor: '#808080',
+		fontSize: 20,
+	},
+	memberlist: {
+		width: '100%',
+		flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+	},
+	memberscroll: {
+		width: '100%',
+		height: '30%',
+		borderWidth: 4
 	},
 	members: {
-		fontSize: 30,
+		width: '100%',
+		fontSize: 20,
 		borderWidth: 2,
 		padding: 10,
-		marginBottom: 20,
 		borderColor: '#cecece'
 	},
 });
