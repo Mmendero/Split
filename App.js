@@ -22,10 +22,15 @@ class App extends Component {
     return (
 
       <View style={styles.container}>
-        <Input/>
-
         
-      
+        <View style={styles.totalbill}>
+          <Text>Hello World!</Text>
+        </View>
+
+
+
+        <Input/>
+        
       </View>
 
 

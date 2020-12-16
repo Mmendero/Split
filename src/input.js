@@ -6,6 +6,8 @@ import {
   TextInput,
   TouchableOpacity, 
   Button,
+  ScrollView,
+  SafeView
 } from "react-native";
 
 //Import Styles
@@ -16,7 +18,7 @@ class Input extends Component {
   
   state = {
     textinput: '',
-    party: ['User']
+    party: ['Matt','Sandra', 'Merlinda', 'Rossette', 'Brandon', 'Jerry', 'Angel', 'Jason', 'Jordan']
   }
 
   onChangeInput = event => {
@@ -27,40 +29,49 @@ class Input extends Component {
 
   onAddMember = () => {
     this.setState(prevstate => {
-      return{
-        //Set field back to empty
-        textinput:'',
-        //update state's list with new entry
-        party:[...prevstate.party,prevstate.textinput]
+      if(this.state.party.includes(prevstate.textinput)){
+        return{
+          textinput:'',
+          party:[...prevstate.party]
+        }
       }
+      else{
+        return{
+          textinput:'',
+          party:[prevstate.textinput, ...prevstate.party]
+        }
+      }
+
+
+      
         
     })
   }
 
   render() {
     return (
-      <View style={styles.inputWrapper}>
-        
-        {
-          this.state.party.map( item => (
-            <Text style={styles.members} key={item}>{item}</Text>
-          ))
-        }
-        
-        <TextInput
-          value = {this.state.textinput}
-          style = {styles.input}
-          onChangeText = {this.onChangeInput}
-        />
+      
+      <View style={styles.memberlist}>
+        <View style={styles.input}>
+          <TextInput
+            value = {this.state.textinput}
+            style = {styles.inputname}
+            onChangeText = {this.onChangeInput}
+          />
 
-        <Button 
-          title='Add Member'
-          onPress={this.onAddMember}
-        />
-
+          <Button 
+            title='Add Member'
+            onPress={this.onAddMember}
+          />
+        </View>
+        <ScrollView style={styles.memberscroll}> 
+          {
+            this.state.party.map( item => (
+              <Text style={styles.members} key={item}>{item}</Text>
+            ))
+          }
+        </ScrollView>
       </View>
-      
-      
       
     );
   }
