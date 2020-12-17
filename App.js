@@ -15,6 +15,7 @@ import {
 
 //Source Files
 import PartyInput from "./src/party-input";
+import Bill from "./src/bill-input";
 
 //Import Styles
 import styles from './src/styles';
@@ -23,6 +24,7 @@ import styles from './src/styles';
 
 class App extends Component {
   state = {
+    bill: '0',
     party: ['Matt','Sandra', 'Merlinda', 'Rossette', 'Brandon', 'Jerry', 'Angel', 'Jason', 'Jordan']
   }
 
@@ -44,7 +46,9 @@ class App extends Component {
       <View style={styles.container}>
         
         <View style={styles.totalbill}>
-          <Text>Hello World!</Text>
+          <Bill
+            bill={this.state.bill}
+          />
         </View>
 
 
