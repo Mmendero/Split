@@ -1,32 +1,30 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-	container: {
+	//App.js Styles
+	appContainer: {
         backgroundColor: "#FBFAFA",
         flex: 1,
         justifyContent: "center",
 		alignItems: "center",
 	},
-	inputWrapper: {
-		width: '100%',
-		flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-	},
-	totalbill: {
+	//Bill Styles
+	billContainer: {
 		flex: 2,
 		justifyContent: 'center',
 	},
-	input: {
+	//Add Member Styles
+	memberPromptContainer: {
 		width: '100%',
 		flexDirection: 'row',
 	},
-	inputname: {
+	memberName: {
 		width: '75%',
 		borderWidth: 2,
 		backgroundColor: '#808080',
 		fontSize: 20,
 	},
+	//Party Styles
 	memberlist: {
 		width: '100%',
 		flex: 1,

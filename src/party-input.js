@@ -39,10 +39,10 @@ class PartyInput extends Component {
   render() {
     return (
       
-      <View style={styles.input}>
+      <View style={styles.memberPromptContainer}>
         <TextInput
           value = {this.state.textinput}
-          style = {styles.inputname}
+          style = {styles.memberName}
           onChangeText = {this.onChangeInput}
         />
 
