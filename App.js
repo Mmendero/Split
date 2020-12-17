@@ -14,7 +14,7 @@ import {
 } from "react-native";
 
 //Source Files
-import Input from "./src/input";
+import PartyInput from "./src/party-input";
 
 //Import Styles
 import styles from './src/styles';
@@ -49,7 +49,7 @@ class App extends Component {
 
 
         <View style={styles.memberlist}>
-          <Input
+          <PartyInput
             party={this.state.party}
             add={this.addMember}
           />

@@ -14,7 +14,7 @@ import {
 import styles from './styles';
 
 
-class Input extends Component {
+class PartyInput extends Component {
   constructor(props){
     super(props);
 
@@ -23,6 +23,12 @@ class Input extends Component {
     }
   }
   
+  onAddMember = member => {
+    this.setState({
+      textinput: ''
+    })
+    this.props.add(member);
+  }
 
   onChangeInput = event => {
     this.setState({
@@ -42,7 +48,7 @@ class Input extends Component {
 
         <Button 
           title='Add Member'
-          onPress={() => this.props.add(this.state.textinput)}
+          onPress={() => this.onAddMember(this.state.textinput)}
         />
       </View>
         
@@ -51,4 +57,4 @@ class Input extends Component {
   }
 }
 
-export default Input;
+export default PartyInput;
