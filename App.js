@@ -43,9 +43,9 @@ class App extends Component {
   
   render() {
     return (
-      <View style={styles.container}>
+      <View style={styles.appContainer}>
         
-        <View style={styles.totalbill}>
+        <View style={styles.billContainer}>
           <Bill
             bill={this.state.bill}
           />

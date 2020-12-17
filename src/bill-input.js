@@ -26,9 +26,7 @@ class Bill extends Component {
   render() {
     return (
       
-      <View style={styles.input}>
-        <Text>{this.state.billInput}</Text>
-      </View>
+      <Text>{this.state.billInput}</Text>
         
       
     );
