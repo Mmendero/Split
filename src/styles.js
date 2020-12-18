@@ -13,6 +13,33 @@ const styles = StyleSheet.create({
 		flex: 2,
 		justifyContent: 'center',
 	},
+	billInputContainer: {
+		flex: 1,
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: "center",
+	},
+	billButtonContainer: {
+		flex: 1,
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: "center",
+	},
+	billInput: {
+		width: '50%',
+		backgroundColor: 'white',
+		fontSize: 50,
+		textAlign: 'center'
+	},
+	billButton: {
+		backgroundColor: 'dodgerblue',
+		margin: 10,
+		fontSize: 25,
+	},
+	billText: {
+		backgroundColor: 'white',
+		fontSize: 50,
+	},
 	//Add Member Styles
 	memberPromptContainer: {
 		width: '100%',
@@ -21,7 +48,7 @@ const styles = StyleSheet.create({
 	memberName: {
 		width: '75%',
 		borderWidth: 2,
-		backgroundColor: '#808080',
+		backgroundColor: 'silver',
 		fontSize: 20,
 	},
 	//Party Styles

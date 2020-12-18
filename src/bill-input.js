@@ -13,7 +13,6 @@ import {
 //Import Styles
 import styles from './styles';
 
-
 class Bill extends Component {
   constructor(props){
     super(props);
@@ -23,11 +22,36 @@ class Bill extends Component {
     }
   }
 
+  onChangeInput = text => {
+    if (/^\d+$/.test(text)) {
+      this.setState({
+        billInput: text
+      });
+    }
+  }
+
   render() {
     return (
-      
-      <Text>{this.state.billInput}</Text>
-        
+      <View>
+        <View style={styles.billInputContainer}>
+          <Text style={styles.billText}>$</Text>
+
+          <TextInput 
+            style={styles.billInput}
+            keyboardType='phone-pad'
+            onChangeText={this.onChangeInput}
+            maxLength={4}
+          />
+        </View>
+
+        <View style={styles.billButtonContainer}>
+          <Button 
+            title='Even Split'
+            style={styles.billButton}
+            onPress={() => {this.props.even(this.state.billInput)}}
+          />
+        </View>
+      </View>
       
     );
   }
