@@ -23,10 +23,35 @@ class Bill extends Component {
     }
   }
 
+  onChangeInput = text => {
+    this.setState({
+      billInput: text
+    })
+  }
+
   render() {
     return (
+      <View>
+        <View style={styles.billInputContainer}>
+          <Text style={styles.billText}>$</Text>
+
+          <TextInput 
+            style={styles.billInput}
+            keyboardType='numeric'
+            onChangeText={this.onChangeInput}
+            value={this.state.billInput}
+            maxLength={4}
+          />
+        </View>
+
+        <View style={styles.billButtonContainer}>
+          <Button style={styles.billButton} title='Button1'/>
+          <Button style={styles.billButton} title='Button2'/>
+          <Button style={styles.billButton} title='Button3'/>
+        </View>
+      </View>
       
-      <Text>{this.state.billInput}</Text>
+      
         
       
     );

@@ -24,10 +24,12 @@ class PartyInput extends Component {
   }
   
   onAddMember = member => {
-    this.setState({
-      textinput: ''
-    })
-    this.props.add(member);
+    if(!(member == '')){
+      this.setState({
+        textinput: ''
+      })
+      this.props.add(member);
+    }
   }
 
   onChangeInput = event => {
