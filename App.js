@@ -38,6 +38,16 @@ class App extends Component {
     }
   }
 
+  evenSplit = (total_bill) => {
+    this.setState(() => {
+      return{
+        bill: total_bill
+      }
+    })
+    
+  }
+
+  evenSplit = this.evenSplit.bind(this);
   addMember = this.addMember.bind(this);
   
   
@@ -48,6 +58,7 @@ class App extends Component {
         <View style={styles.billContainer}>
           <Bill
             bill={this.state.bill}
+            even={this.evenSplit}
           />
         </View>
 

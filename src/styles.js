@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
 	memberName: {
 		width: '75%',
 		borderWidth: 2,
-		backgroundColor: '#808080',
+		backgroundColor: 'silver',
 		fontSize: 20,
 	},
 	//Party Styles
