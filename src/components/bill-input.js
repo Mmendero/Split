@@ -11,7 +11,7 @@ import {
 } from "react-native";
 
 //Import Styles
-import styles from './styles';
+import styles from '../styles';
 
 class Bill extends Component {
   constructor(props){
