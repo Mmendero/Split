@@ -70,6 +70,30 @@ const styles = StyleSheet.create({
 		padding: 10,
 		borderColor: '#cecece'
 	},
+	//Split Results Styles
+	partyHeader: {
+		fontSize: 20,
+	},
+	outputText: {
+		fontSize: 20,
+		textAlign: "center",
+	},
+	totalBill: {
+		fontSize: 60,
+	},
+	splitBill: {
+		fontSize: 40,
+	},
+	priceContainer: {
+		width: '100%',
+		flex: 2,
+        justifyContent: "center",
+        alignItems: "center",
+	},
+	partyContainer: {
+		width: '100%',
+		flex: 3,
+	},
 });
 
 export default styles;
