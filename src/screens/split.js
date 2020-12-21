@@ -23,10 +23,22 @@ import styles from '../styles';
 
 
 class Split extends Component {
-  state = {
-    bill: '0',
-    party: ['Matt','Sandra', 'Merlinda', 'Rossette', 'Brandon', 'Jerry', 'Angel', 'Jason', 'Jordan']
+  constructor(props){
+    super(props);  
+     
+    this.navigation = this.props.navigation;
+
+    this.state = {
+      bill: '0',
+      split: '0',
+      party: ['Matt','Sandra', 'Merlinda', 'Rossette', 'Brandon', 'Jerry', 'Angel', 'Jason', 'Jordan']
+    }
+
+    this.evenSplit = this.evenSplit.bind(this);
+    this.addMember = this.addMember.bind(this);
   }
+
+  
 
   addMember = (member) => {
     if(!(this.state.party.includes(member))){
@@ -37,20 +49,22 @@ class Split extends Component {
       })
     }
   }
-
+  
   evenSplit = (total_bill) => {
     this.setState(() => {
       return{
-        bill: total_bill
+        bill: total_bill,
+        split: (parseFloat(total_bill) / this.state.party.length).toFixed(2)
       }
-    })
+    }, () => {
+      this.navigation.navigate('Output', {
+        state: this.state
+      })
+    });
+
     
   }
 
-  evenSplit = this.evenSplit.bind(this);
-  addMember = this.addMember.bind(this);
-  
-  
   render() {
     return (
       <View style={styles.appContainer}>
