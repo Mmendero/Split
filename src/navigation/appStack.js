@@ -2,14 +2,15 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 
 import Split from '../screens/split';
-import SplitResult from '../screens/split-result';
+import EvenResult from '../screens/even-result';
 
+//Define all screens within app
 const screens = {
     Home:{
         screen: Split
     },
-    Output:{
-        screen: SplitResult
+    EvenOutput:{
+        screen: EvenResult
     }
 }
 

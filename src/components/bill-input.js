@@ -22,6 +22,7 @@ class Bill extends Component {
     }
   }
 
+  //Handles Bill-Input Change
   onChangeInput = text => {
     if (/^\d+$/.test(text)) {
       this.setState({
@@ -30,13 +31,14 @@ class Bill extends Component {
     }
   }
 
+  //Render Bill Input/Option
   render() {
     return (
       <View>
         <View style={styles.billInputContainer}>
           <Text style={styles.billText}>$</Text>
 
-          <TextInput 
+          <TextInput
             style={styles.billInput}
             keyboardType='phone-pad'
             onChangeText={this.onChangeInput}
@@ -45,14 +47,13 @@ class Bill extends Component {
         </View>
 
         <View style={styles.billButtonContainer}>
-          <Button 
+          <Button
             title='Even Split'
             style={styles.billButton}
             onPress={() => {this.props.even(this.state.billInput)}}
           />
         </View>
       </View>
-      
     );
   }
 }
