@@ -21,7 +21,7 @@ import Bill from "../components/bill-input";
 import styles from '../styles';
 
 
-
+//Input Screen Class
 class Split extends Component {
   constructor(props){
     super(props);  
@@ -39,7 +39,7 @@ class Split extends Component {
   }
 
   
-
+  //Adds member to State party
   addMember = (member) => {
     if(!(this.state.party.includes(member))){
       this.setState(() => {
@@ -50,6 +50,7 @@ class Split extends Component {
     }
   }
   
+  //Even Split Logic
   evenSplit = (total_bill) => {
     this.setState(() => {
       return{
@@ -57,14 +58,13 @@ class Split extends Component {
         split: (parseFloat(total_bill) / this.state.party.length).toFixed(2)
       }
     }, () => {
-      this.navigation.navigate('Output', {
+      this.navigation.navigate('EvenOutput', {
         state: this.state
       })
     });
-
-    
   }
 
+  //Render Input Screen
   render() {
     return (
       <View style={styles.appContainer}>
@@ -76,7 +76,7 @@ class Split extends Component {
           />
         </View>
 
-
+        {/*Output Party List*/}
         <View style={styles.memberlist}>
           <PartyInput
             party={this.state.party}
@@ -93,7 +93,6 @@ class Split extends Component {
         </View>
         
       </View>
-
 
     );
   }

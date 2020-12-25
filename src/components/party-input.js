@@ -13,7 +13,6 @@ import {
 //Import Styles
 import styles from '../styles';
 
-
 class PartyInput extends Component {
   constructor(props){
     super(props);
@@ -23,6 +22,7 @@ class PartyInput extends Component {
     }
   }
   
+  //Add Party Member, Update State
   onAddMember = member => {
     if(!(member == '')){
       this.setState({
@@ -32,15 +32,16 @@ class PartyInput extends Component {
     }
   }
 
+  //Text Change Handler
   onChangeInput = event => {
     this.setState({
         textinput: event
     })
   }
 
+  //Render Member Input
   render() {
     return (
-      
       <View style={styles.memberPromptContainer}>
         <TextInput
           value = {this.state.textinput}
