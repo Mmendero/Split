@@ -13,8 +13,9 @@ import {
   ScrollView
 } from "react-native";
 
-//Source Files
+//Source Components
 import PartyInput from "../components/party-input";
+import DisplayParty from "../components/display-party";
 import Bill from "../components/bill-input";
 
 //Import Styles
@@ -83,13 +84,9 @@ class Split extends Component {
             add={this.addMember}
           />
 
-          <ScrollView style={styles.memberscroll}> 
-            {
-              this.state.party.map( item => (
-                <Text style={styles.members} key={item}>{item}</Text>
-              ))
-            }
-          </ScrollView>
+          <DisplayParty
+            party={this.state.party}
+          />
         </View>
         
       </View>

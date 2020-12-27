@@ -9,6 +9,9 @@ import {
   ScrollView
 } from "react-native";
 
+//Source Components
+import DisplayParty from "../components/display-party";
+
 //Import Styles
 import styles from '../styles';
 
@@ -41,13 +44,9 @@ class EvenResult extends Component {
         {/*Output Party*/}
         <View style={styles.partyContainer}>
           <Text style={styles.partyHeader}>Current Party</Text>
-          <ScrollView style={styles.memberscroll}> 
-            {
-              this.state.party.map( item => (
-                <Text style={styles.members} key={item}>{item}</Text>
-              ))
-            }
-          </ScrollView>
+          <DisplayParty
+            party={this.state.party}
+          />
         </View>
         
       </View> 
