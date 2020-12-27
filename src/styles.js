@@ -61,14 +61,20 @@ const styles = StyleSheet.create({
 	memberscroll: {
 		width: '100%',
 		height: '30%',
-		borderWidth: 4
+		borderWidth: 1
 	},
 	members: {
 		width: '100%',
 		fontSize: 20,
-		borderWidth: 2,
-		padding: 10,
-		borderColor: '#cecece'
+		color: "black",
+		borderWidth: 1,
+		padding: 20,
+		borderColor: '#cecece',
+		backgroundColor: "white",
+	},
+	memberwrapper: {
+		backgroundColor: "lightgray",
+		padding: 5
 	},
 	//Split Results Styles
 	partyHeader: {

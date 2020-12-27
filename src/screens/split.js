@@ -37,6 +37,7 @@ class Split extends Component {
 
     this.evenSplit = this.evenSplit.bind(this);
     this.addMember = this.addMember.bind(this);
+    this.editMember = this.editMember.bind(this);
   }
 
   
@@ -49,6 +50,12 @@ class Split extends Component {
         }
       })
     }
+  }
+
+  //Edit member to State party
+  editMember = (member) => {
+    console.log("Edittable: True");
+    
   }
   
   //Even Split Logic
@@ -86,6 +93,8 @@ class Split extends Component {
 
           <DisplayParty
             party={this.state.party}
+            edit={this.editMember}
+            edittable={true}
           />
         </View>
         
