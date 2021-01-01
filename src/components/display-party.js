@@ -26,7 +26,7 @@ class DisplayParty extends Component{
             this.props.edit(member);
         }
         else{
-            console.log("Edittable: False");
+            console.log("Edittable: false");
         }
     }
 
