@@ -21,6 +21,10 @@ import Bill from "../components/bill-input";
 //Import Styles
 import styles from '../styles';
 
+//Helper Function
+function uniqueKey(){
+  return "Some Unique Key";
+}
 
 //Input Screen Class
 class Split extends Component {
@@ -32,7 +36,18 @@ class Split extends Component {
     this.state = {
       bill: '0',
       split: '0',
-      party: ['Matt','Sandra', 'Merlinda', 'Rossette', 'Brandon', 'Jerry', 'Angel', 'Jason', 'Jordan']
+      party: [
+        {name: 'Matt', key: 'key-1'},
+        {name: 'Sandra', key: 'key-2'},
+        {name: 'Merlinda', key: 'key-3'},
+        {name: 'Rossette', key: 'key-4'},
+        {name: 'Jason', key: 'key-5'},
+        {name: 'Jerry', key: 'key-6'},
+        {name: 'Angel', key: 'key-7'},
+        {name: 'Brandon', key: 'key-8'},
+        {name: 'Jordan', key: 'key-9'},
+      ]
+
     }
 
     this.evenSplit = this.evenSplit.bind(this);
@@ -43,10 +58,10 @@ class Split extends Component {
   
   //Adds member to State party
   addMember = (member) => {
-    if(!(this.state.party.includes(member))){
+    if(this.state.party.find(person => person.name == member.name) == null){
       this.setState(() => {
         return{
-          party:[member, ...this.state.party]
+          party:[{name: member, key: '0'}, ...this.state.party]
         }
       })
     }
@@ -55,7 +70,7 @@ class Split extends Component {
   //Edit member to State party
   editMember = (member) => {
     console.log("Edittable: True");
-    
+    print();
   }
   
   //Even Split Logic

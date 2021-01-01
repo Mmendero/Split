@@ -39,8 +39,9 @@ class DisplayParty extends Component{
                         <TouchableOpacity
                             style={styles.memberwrapper}
                             onPress={() => {this.edit(person)}}
+                            key={person.key}
                         >
-                            <Text style={styles.members} key={person}>{person}</Text>
+                            <Text style={styles.members}>{person.name}</Text>
                         </TouchableOpacity>
                     ))
                 }
