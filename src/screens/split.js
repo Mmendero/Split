@@ -26,6 +26,15 @@ function uniqueKey(name){
   return name + '_key_' + name;
 }
 
+function isInParty(target, party){
+  for(var i = 0; i < party.length; i++){
+    if(party[i].name == target){
+      return true;
+    }
+  }
+  return false;
+}
+
 //Input Screen Class
 class Split extends Component {
   constructor(props){
@@ -58,7 +67,8 @@ class Split extends Component {
   
   //Adds member to State party
   addMember = (member) => {
-    if(this.state.party.find(person => person.name == member.name) == null){
+    console.log(isInParty(member, this.state.party));
+    if(!(isInParty(member, this.state.party))){
       this.setState(() => {
         return{
           party:[{name: member, key: uniqueKey(member)}, ...this.state.party]
@@ -70,7 +80,6 @@ class Split extends Component {
   //Edit member to State party
   editMember = (member) => {
     console.log("Edittable: True");
-    console.log(member);
   }
   
   //Even Split Logic
