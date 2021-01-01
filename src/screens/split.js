@@ -21,6 +21,19 @@ import Bill from "../components/bill-input";
 //Import Styles
 import styles from '../styles';
 
+//Generate Unique Id for Party Members
+function uniqueKey(name){
+  return name + '_key_' + name;
+}
+
+function isInParty(target, party){
+  for(var i = 0; i < party.length; i++){
+    if(party[i].name == target){
+      return true;
+    }
+  }
+  return false;
+}
 
 //Input Screen Class
 class Split extends Component {
@@ -32,7 +45,18 @@ class Split extends Component {
     this.state = {
       bill: '0',
       split: '0',
-      party: ['Matt','Sandra', 'Merlinda', 'Rossette', 'Brandon', 'Jerry', 'Angel', 'Jason', 'Jordan']
+      party: [
+        {name: 'Matt', key: uniqueKey('Matt')},
+        {name: 'Sandra', key: uniqueKey('Sandra')},
+        {name: 'Merlinda', key: uniqueKey('Merlinda')},
+        {name: 'Rossette', key: uniqueKey('Rossette')},
+        {name: 'Jason', key: uniqueKey('Jason')},
+        {name: 'Jerry', key: uniqueKey('Jerry')},
+        {name: 'Angel', key: uniqueKey('Angel')},
+        {name: 'Brandon', key: uniqueKey('Brandon')},
+        {name: 'Jordan', key: uniqueKey('Jordan')},
+      ]
+
     }
 
     this.evenSplit = this.evenSplit.bind(this);
@@ -43,10 +67,11 @@ class Split extends Component {
   
   //Adds member to State party
   addMember = (member) => {
-    if(!(this.state.party.includes(member))){
+    console.log(isInParty(member, this.state.party));
+    if(!(isInParty(member, this.state.party))){
       this.setState(() => {
         return{
-          party:[member, ...this.state.party]
+          party:[{name: member, key: uniqueKey(member)}, ...this.state.party]
         }
       })
     }
@@ -55,7 +80,6 @@ class Split extends Component {
   //Edit member to State party
   editMember = (member) => {
     console.log("Edittable: True");
-    
   }
   
   //Even Split Logic
