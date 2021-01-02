@@ -1,6 +1,6 @@
 import React from "react";
 
-import { View } from "react-native";
+import { Button, View } from "react-native";
 
 //Source Components
 import PartyInput from "../components/party-input";
@@ -92,17 +92,33 @@ class Split extends React.Component {
 
   //Render Input Screen
   render() {
+    let popupRef = React.createRef();
+
+    const onShowPopup = () => {
+      popupRef.show();
+    };
+
+    const onClosePopup = () => {
+      popupRef.close();
+    };
+
     return (
       <View style={styles.appContainer}>
         <View style={styles.billContainer}>
           <Bill bill={this.state.bill} even={this.evenSplit} />
         </View>
 
-        {/*<PartyInputPopup />*/}
+        <PartyInputPopup
+          title="Add Party Member"
+          ref={(target) => (popupRef = target)}
+          onTouchOutide={onClosePopup}
+        />
 
         {/*Output Party List*/}
         <View style={styles.memberlist}>
-          <PartyInput party={this.state.party} add={this.addMember} />
+          {/*<PartyInput party={this.state.party} add={this.addMember} />*/}
+
+          <Button title="Add Member" onPress={onShowPopup} />
 
           <DisplayParty
             party={this.state.party}
