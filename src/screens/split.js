@@ -3,7 +3,6 @@ import React from "react";
 import { Button, Text, View } from "react-native";
 
 //Source Components
-import PartyInput from "../components/party-input";
 import DisplayParty from "../components/display-party";
 import Bill from "../components/bill-input";
 import PartyInputPopup from "../components/party-input-popup";

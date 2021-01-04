@@ -27,8 +27,10 @@ class PartyInputPopup extends React.Component {
 
   //Add button handler
   addHandler = () => {
-    this.setState({ show: false });
-    this.props.add(this.state.name);
+    if (!(this.state.name == "")) {
+      this.setState({ show: false });
+      this.props.add(this.state.name);
+    }
   };
 
   //Text Change Handler

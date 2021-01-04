@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
   addMemberButton: {
     width: 50,
     height: 50,
-    padding: 10,
     borderRadius: 100,
     backgroundColor: "#4285f4",
     justifyContent: "center",
@@ -76,7 +75,7 @@ const styles = StyleSheet.create({
   },
   headerButtonText: {
     color: "white",
-    fontSize: 25,
+    fontSize: 30,
     fontWeight: "bold",
   },
   memberlist: {
