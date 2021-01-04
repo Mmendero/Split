@@ -55,6 +55,30 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   //Party Styles
+  partyHeaderContainer: {
+    width: devicewidth,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    backgroundColor: "#b92b27",
+    borderWidth: 2,
+    borderTopStartRadius: 10,
+    borderTopEndRadius: 10,
+  },
+  addMemberButton: {
+    width: 50,
+    height: 50,
+    padding: 10,
+    borderRadius: 100,
+    backgroundColor: "#4285f4",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  headerButtonText: {
+    color: "white",
+    fontSize: 25,
+    fontWeight: "bold",
+  },
   memberlist: {
     width: "100%",
     flex: 1,
@@ -64,7 +88,6 @@ const styles = StyleSheet.create({
   memberscroll: {
     width: "100%",
     height: "30%",
-    borderWidth: 1,
   },
   members: {
     width: "100%",
@@ -113,9 +136,9 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0,0,0,0.5)",
   },
   popupContainer: {
-    flex: 1,
     justifyContent: "center",
     marginTop: "auto",
+    marginBottom: "auto",
     marginLeft: "auto",
     marginRight: "auto",
   },
@@ -123,15 +146,39 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
     backgroundColor: "white",
-    justifyContent: "center",
+    alignItems: "center",
     width: devicewidth * 0.8,
+    height: deviceheight * 0.3,
   },
   popupText: {
-    color: "#00a4f0",
+    flex: 1,
+    color: "#4285f4",
+    fontWeight: "bold",
     textAlign: "center",
     fontSize: 20,
-    fontWeight: "500",
-    margin: 15,
+    margin: 20,
+  },
+  popupInput: {
+    flex: 1,
+    fontSize: 25,
+    borderWidth: 1,
+    borderRadius: 10,
+    backgroundColor: "#c2c2c2",
+    width: devicewidth * 0.6,
+    textAlign: "center",
+    marginBottom: 30,
+  },
+  popupButtonContainer: {
+    flex: 1,
+    borderWidth: 1,
+  },
+  popupButton: {
+    color: "white",
+    backgroundColor: "#4285f4",
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 10,
+    marginBottom: 20,
   },
 });
 

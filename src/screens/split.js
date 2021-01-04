@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button, View } from "react-native";
+import { Button, Text, View } from "react-native";
 
 //Source Components
 import PartyInput from "../components/party-input";
@@ -10,6 +10,7 @@ import PartyInputPopup from "../components/party-input-popup";
 
 //Import Styles
 import styles from "../styles";
+import { TouchableHighlight } from "react-native-gesture-handler";
 
 //Generate Unique Id for Party Members
 function uniqueKey(name) {
@@ -55,7 +56,6 @@ class Split extends React.Component {
 
   //Adds member to State party
   addMember = (member) => {
-    console.log(isInParty(member, this.state.party));
     if (!isInParty(member, this.state.party)) {
       this.setState(() => {
         return {
@@ -111,6 +111,7 @@ class Split extends React.Component {
         <PartyInputPopup
           title="Add Party Member"
           ref={(target) => (popupRef = target)}
+          add={this.addMember}
           onTouchOutide={onClosePopup}
         />
 
@@ -118,7 +119,20 @@ class Split extends React.Component {
         <View style={styles.memberlist}>
           {/*<PartyInput party={this.state.party} add={this.addMember} />*/}
 
-          <Button title="Add Member" onPress={onShowPopup} />
+          <View style={styles.partyHeaderContainer}>
+            <View>
+              <Text style={{ padding: 5, fontSize: 20, color: "white" }}>
+                Current Party({this.state.party.length})
+              </Text>
+            </View>
+
+            <TouchableHighlight
+              onPress={onShowPopup}
+              style={styles.addMemberButton}
+            >
+              <Text style={styles.headerButtonText}>+</Text>
+            </TouchableHighlight>
+          </View>
 
           <DisplayParty
             party={this.state.party}

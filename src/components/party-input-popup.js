@@ -1,6 +1,16 @@
 import React from "react";
-import { View, Text, Modal, TouchableWithoutFeedback } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import {
+  View,
+  Text,
+  Modal,
+  TouchableWithoutFeedback,
+  Button,
+} from "react-native";
+import {
+  TextInput,
+  TouchableHighlight,
+  TouchableOpacity,
+} from "react-native-gesture-handler";
 
 //Import Styles
 import styles from "../styles";
@@ -11,12 +21,18 @@ class PartyInputPopup extends React.Component {
 
     this.state = {
       show: false,
-      name: this.props.name,
+      name: "",
     };
   }
 
+  //Add button handler
+  addHandler = () => {
+    this.setState({ show: false });
+    this.props.add(this.state.name);
+  };
+
   //Text Change Handler
-  onChangeInput = (event) => {
+  onEditInput = (event) => {
     this.setState({
       name: event,
     });
@@ -49,6 +65,19 @@ class PartyInputPopup extends React.Component {
         <View style={styles.popupContainer}>
           <View style={styles.inputBorder}>
             <Text style={styles.popupText}>{title}</Text>
+
+            <TextInput
+              style={styles.popupInput}
+              onChangeText={this.onEditInput}
+              maxLength={50}
+            />
+
+            <TouchableWithoutFeedback
+              onPress={this.addHandler}
+              style={styles.popupButtonContainer}
+            >
+              <Text style={styles.popupButton}>Add Member</Text>
+            </TouchableWithoutFeedback>
           </View>
         </View>
       </Modal>
