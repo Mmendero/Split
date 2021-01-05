@@ -15,21 +15,21 @@ import {
 //Import Styles
 import styles from "../styles";
 
-class PartyInputPopup extends React.Component {
+class PartyEditPopup extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       show: false,
-      name: "",
+      name: this.props.member.name,
     };
   }
 
-  //Add button handler
-  addHandler = () => {
+  //edit button handler
+  editHandler = () => {
     if (!(this.state.name == "")) {
       this.setState({ show: false });
-      this.props.add(this.state.name);
+      console.log(this.state.name);
     }
   };
 
@@ -41,7 +41,7 @@ class PartyInputPopup extends React.Component {
   };
 
   show = () => {
-    this.setState({ show: true });
+    this.setState({ show: true, name: this.props.member.name });
   };
 
   close = () => {
@@ -51,6 +51,7 @@ class PartyInputPopup extends React.Component {
   //Render Member Input
   render() {
     let { show } = this.state;
+    let name = this.state.name;
     const { onTouchOutside, title } = this.props;
 
     return (
@@ -70,16 +71,16 @@ class PartyInputPopup extends React.Component {
 
             <TextInput
               style={styles.popupInput}
-              onChangeText={this.onEditInput}
+              value={this.state.name}
+              onChangeText={(value) => this.setState({ name: value })}
               maxLength={50}
-              placeholder="Add Name"
             />
 
             <TouchableWithoutFeedback
-              onPress={this.addHandler}
+              onPress={this.editHandler}
               style={styles.popupButtonContainer}
             >
-              <Text style={styles.popupButton}>Add Member</Text>
+              <Text style={styles.popupButton}>Edit Member</Text>
             </TouchableWithoutFeedback>
           </View>
         </View>
@@ -88,4 +89,4 @@ class PartyInputPopup extends React.Component {
   }
 }
 
-export default PartyInputPopup;
+export default PartyEditPopup;
