@@ -3,10 +3,10 @@ import React from "react";
 import { Button, Text, View } from "react-native";
 
 //Source Components
-import PartyInput from "../components/party-input";
 import DisplayParty from "../components/display-party";
 import Bill from "../components/bill-input";
 import PartyInputPopup from "../components/party-input-popup";
+import PartyEditPopup from "../components/party-edit-popup";
 
 //Import Styles
 import styles from "../styles";
@@ -38,7 +38,8 @@ class Split extends React.Component {
       bill: '0',
       tip: '0',
       split: '0',
-
+      edit: "",
+      
       party: [
         { name: "Matt", key: uniqueKey("Matt") },
         { name: "Sandra", key: uniqueKey("Sandra") },
@@ -74,6 +75,7 @@ class Split extends React.Component {
   //Edit member to State party
   editMember = (member) => {
     console.log("Edittable: True");
+    console.log(member);
   };
 
   //Even Split Logic
@@ -96,14 +98,32 @@ class Split extends React.Component {
 
   //Render Input Screen
   render() {
-    let popupRef = React.createRef();
+    let addRef = React.createRef();
 
-    const onShowPopup = () => {
-      popupRef.show();
+    const onShowAdd = () => {
+      addRef.show();
     };
 
-    const onClosePopup = () => {
-      popupRef.close();
+    const onCloseAdd = () => {
+      addRef.close();
+    };
+
+    //Edit Helpers
+    let editRef = React.createRef();
+
+    const editHandler = (member) => {
+      this.setState({
+        edit: member,
+      });
+      editRef.show();
+    };
+
+    const onShowEdit = () => {
+      editRef.show();
+    };
+
+    const onCloseEdit = () => {
+      editRef.close();
     };
 
     return (
@@ -114,9 +134,17 @@ class Split extends React.Component {
 
         <PartyInputPopup
           title="Add Party Member"
-          ref={(target) => (popupRef = target)}
+          ref={(target) => (addRef = target)}
           add={this.addMember}
-          onTouchOutide={onClosePopup}
+          onTouchOutside={onCloseAdd}
+        />
+
+        <PartyEditPopup
+          title="Edit Party Member"
+          ref={(target) => (editRef = target)}
+          member={this.state.edit}
+          edit={this.addMember}
+          onTouchOutside={onCloseEdit}
         />
 
         {/*Output Party List*/}
@@ -131,7 +159,7 @@ class Split extends React.Component {
             </View>
 
             <TouchableHighlight
-              onPress={onShowPopup}
+              onPress={onShowAdd}
               style={styles.addMemberButton}
             >
               <Text style={styles.headerButtonText}>+</Text>
@@ -140,7 +168,7 @@ class Split extends React.Component {
 
           <DisplayParty
             party={this.state.party}
-            edit={this.editMember}
+            edit={editHandler}
             edittable={true}
           />
         </View>
