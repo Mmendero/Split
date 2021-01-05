@@ -44,6 +44,7 @@ class Split extends Component {
 
     this.state = {
       bill: '0',
+      tip: '0',
       split: '0',
       party: [
         {name: 'Matt', key: uniqueKey('Matt')},
@@ -83,10 +84,11 @@ class Split extends Component {
   }
   
   //Even Split Logic
-  evenSplit = (total_bill) => {
+  evenSplit = (total_bill, tip_percentage) => {
     this.setState(() => {
       return{
         bill: total_bill,
+        tip: (tip_percentage/100) * total_bill,
         split: (parseFloat(total_bill) / this.state.party.length).toFixed(2)
       }
     }, () => {
@@ -104,6 +106,7 @@ class Split extends Component {
         <View style={styles.billContainer}>
           <Bill
             bill={this.state.bill}
+            tip={this.state.tip}
             even={this.evenSplit}
           />
         </View>
