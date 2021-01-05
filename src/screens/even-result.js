@@ -41,6 +41,14 @@ class EvenResult extends Component {
           <Text style={styles.splitBill}>${this.state.split}</Text>
         </View>
 
+
+        {/*Tip Price*/}
+        <View style={styles.tipContainer}>
+          <Text style={styles.outputText}>The Tip is</Text>
+          <Text style={styles.tip}>${this.state.tip}</Text>
+        </View>
+
+
         {/*Output Party*/}
         <View style={styles.partyContainer}>
           <Text style={styles.partyHeader}>Current Party</Text>

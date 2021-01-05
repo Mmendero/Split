@@ -34,9 +34,12 @@ class Split extends React.Component {
     this.navigation = this.props.navigation;
 
     this.state = {
-      bill: "0",
-      split: "0",
+
+      bill: '0',
+      tip: '0',
+      split: '0',
       edit: "",
+      
       party: [
         { name: "Matt", key: uniqueKey("Matt") },
         { name: "Sandra", key: uniqueKey("Sandra") },
@@ -76,11 +79,12 @@ class Split extends React.Component {
   };
 
   //Even Split Logic
-  evenSplit = (total_bill) => {
+  evenSplit = (total_bill, tip_percentage) => {
     this.setState(
       () => {
         return {
           bill: total_bill,
+          tip: (tip_percentage/100) * total_bill,
           split: (parseFloat(total_bill) / this.state.party.length).toFixed(2),
         };
       },
@@ -125,7 +129,7 @@ class Split extends React.Component {
     return (
       <View style={styles.appContainer}>
         <View style={styles.billContainer}>
-          <Bill bill={this.state.bill} even={this.evenSplit} />
+          <Bill bill={this.state.bill} tip={this.state.tip} even={this.evenSplit} />
         </View>
 
         <PartyInputPopup

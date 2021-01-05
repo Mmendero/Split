@@ -11,6 +11,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+
+  boldText: {
+    fontWeight: "bold",
+  },
+
   //Bill Styles
   billContainer: {
     flex: 2,
@@ -43,6 +48,34 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     fontSize: 50,
   },
+  //Tip
+  tipInputContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  tipInput: {
+    width: "50%",
+    backgroundColor: "white",
+    fontSize: 50,
+    textAlign: "center",
+  },
+  tipInputText: {
+    backgroundColor: "white",
+    fontSize: 50,
+  },
+  tipText: {
+	fontWeight: "bold",
+	fontSize: 30,
+  },
+  tipTextContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
   //Add Member Styles
   memberPromptContainer: {
     width: "100%",
@@ -87,6 +120,7 @@ const styles = StyleSheet.create({
   memberscroll: {
     width: "100%",
     height: "30%",
+    borderWidth: 1,
   },
   members: {
     width: "100%",
@@ -114,6 +148,15 @@ const styles = StyleSheet.create({
   },
   splitBill: {
     fontSize: 40,
+  },
+  tip: {
+    fontSize: 40,
+  },
+  tipContainer: {
+    width: "100%",
+    flex: 2,
+    justifyContent: "center",
+    alignItems: "center",
   },
   priceContainer: {
     width: "100%",
