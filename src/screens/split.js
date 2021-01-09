@@ -34,12 +34,11 @@ class Split extends React.Component {
     this.navigation = this.props.navigation;
 
     this.state = {
-
-      bill: '0',
-      tip: '0',
-      split: '0',
+      bill: "0",
+      tip: "0",
+      split: "0",
       edit: "",
-      
+
       party: [
         { name: "Matt", key: uniqueKey("Matt") },
         { name: "Sandra", key: uniqueKey("Sandra") },
@@ -58,6 +57,10 @@ class Split extends React.Component {
     this.editMember = this.editMember.bind(this);
   }
 
+  //Modal references
+  addRef = React.createRef();
+  editRef = React.createRef();
+
   //Adds member to State party
   addMember = (member) => {
     if (!isInParty(member, this.state.party)) {
@@ -74,8 +77,15 @@ class Split extends React.Component {
 
   //Edit member to State party
   editMember = (member) => {
-    console.log("Edittable: True");
-    console.log(member);
+    let newparty = [];
+    for (var i = 0; i < this.state.party.length; i++) {
+      if (this.state.party[i].name == this.state.edit.name) {
+        newparty.push({ name: member, key: this.state.edit.key });
+      } else {
+        newparty.push(this.state.party[i]);
+      }
+    }
+    this.setState({ party: newparty });
   };
 
   //Even Split Logic
@@ -84,7 +94,7 @@ class Split extends React.Component {
       () => {
         return {
           bill: total_bill,
-          tip: (tip_percentage/100) * total_bill,
+          tip: (tip_percentage / 100) * total_bill,
           split: (parseFloat(total_bill) / this.state.party.length).toFixed(2),
         };
       },
@@ -98,52 +108,48 @@ class Split extends React.Component {
 
   //Render Input Screen
   render() {
-    let addRef = React.createRef();
-
     const onShowAdd = () => {
-      addRef.show();
+      this.addRef.show();
     };
 
     const onCloseAdd = () => {
-      addRef.close();
+      this.addRef.close();
     };
 
     //Edit Helpers
-    let editRef = React.createRef();
 
     const editHandler = (member) => {
-      this.setState({
-        edit: member,
+      this.setState({ edit: member }, () => {
+        this.editRef.show();
       });
-      editRef.show();
-    };
-
-    const onShowEdit = () => {
-      editRef.show();
     };
 
     const onCloseEdit = () => {
-      editRef.close();
+      this.editRef.close();
     };
 
     return (
       <View style={styles.appContainer}>
         <View style={styles.billContainer}>
-          <Bill bill={this.state.bill} tip={this.state.tip} even={this.evenSplit} />
+          <Bill
+            bill={this.state.bill}
+            tip={this.state.tip}
+            even={this.evenSplit}
+          />
         </View>
 
         <PartyInputPopup
           title="Add Party Member"
-          ref={(target) => (addRef = target)}
+          ref={(target) => (this.addRef = target)}
           add={this.addMember}
           onTouchOutside={onCloseAdd}
         />
 
         <PartyEditPopup
           title="Edit Party Member"
-          ref={(target) => (editRef = target)}
+          ref={(target) => (this.editRef = target)}
           member={this.state.edit}
-          edit={this.addMember}
+          edit={this.editMember}
           onTouchOutside={onCloseEdit}
         />
 
