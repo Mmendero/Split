@@ -28,8 +28,9 @@ class PartyEditPopup extends React.Component {
   //edit button handler
   editHandler = () => {
     if (!(this.state.name == "")) {
-      this.setState({ show: false });
-      console.log(this.state.name);
+      this.setState({ show: false }, () => {
+        this.props.edit(this.state.name);
+      });
     }
   };
 

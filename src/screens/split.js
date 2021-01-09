@@ -50,8 +50,6 @@ class Split extends React.Component {
         { name: "Brandon", key: uniqueKey("Brandon") },
         { name: "Jordan", key: uniqueKey("Jordan") },
       ],
-
-      party_size: 9,
     };
 
     this.evenSplit = this.evenSplit.bind(this);
@@ -79,8 +77,15 @@ class Split extends React.Component {
 
   //Edit member to State party
   editMember = (member) => {
-    console.log("Edittable: True");
-    console.log(member);
+    let newparty = [];
+    for (var i = 0; i < this.state.party.length; i++) {
+      if (this.state.party[i].name == this.state.edit.name) {
+        newparty.push({ name: member, key: this.state.edit.key });
+      } else {
+        newparty.push(this.state.party[i]);
+      }
+    }
+    this.setState({ party: newparty });
   };
 
   //Even Split Logic
