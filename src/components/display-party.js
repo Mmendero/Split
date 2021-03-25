@@ -1,12 +1,8 @@
 import React, { Component, useState } from "react";
 
-import {
-  View,
-  Text,
-  FlatList,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
+
+import CheckBox from "@react-native-community/checkbox";
 
 //Import Styles
 import styles from "../styles";
@@ -15,6 +11,11 @@ import styles from "../styles";
 class DisplayParty extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      results: false,
+      active: false,
+    };
   }
 
   //Edit Handler Function
@@ -38,7 +39,10 @@ class DisplayParty extends Component {
             }}
             key={person.key}
           >
-            <Text style={styles.members}>{person.name}</Text>
+            <View style={styles.members}>
+              <Text style={styles.memberListName}>{person.name}</Text>
+              <CheckBox value={this.state.active} />
+            </View>
           </TouchableOpacity>
         ))}
       </ScrollView>
