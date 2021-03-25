@@ -155,8 +155,6 @@ class Split extends React.Component {
 
         {/*Output Party List*/}
         <View style={styles.memberlist}>
-          {/*<PartyInput party={this.state.party} add={this.addMember} />*/}
-
           <View style={styles.partyHeaderContainer}>
             <View>
               <Text style={{ padding: 5, fontSize: 20, color: "white" }}>

@@ -1,34 +1,25 @@
-import React, { 
-  Component,
-  useState,
- } from "react";
- 
-import { 
-  View, 
-  Text,
-  ScrollView
-} from "react-native";
+import React, { Component, useState } from "react";
+
+import { View, Text, ScrollView } from "react-native";
 
 //Source Components
 import DisplayParty from "../components/display-party";
 
 //Import Styles
-import styles from '../styles';
-
+import styles from "../styles";
 
 //Split Output Screen
 class EvenResult extends Component {
-  constructor(props){
-    super(props);  
+  constructor(props) {
+    super(props);
 
-    this.state = this.props.navigation.getParam('state');
+    this.state = this.props.navigation.getParam("state");
     console.log(this.state.party.length);
   }
-  
+
   render() {
     return (
       <View style={styles.appContainer}>
-
         {/*Display Final Bill*/}
         <View style={styles.appContainer}>
           <Text style={styles.outputText}>Total Bill</Text>
@@ -37,10 +28,11 @@ class EvenResult extends Component {
 
         {/*Split Bill Price*/}
         <View style={styles.priceContainer}>
-          <Text style={styles.outputText}>To Evenly Split the Bill{"\n"}Everyone Owes</Text>
+          <Text style={styles.outputText}>
+            To Evenly Split the Bill{"\n"}Everyone Owes
+          </Text>
           <Text style={styles.splitBill}>${this.state.split}</Text>
         </View>
-
 
         {/*Tip Price*/}
         <View style={styles.tipContainer}>
@@ -48,16 +40,18 @@ class EvenResult extends Component {
           <Text style={styles.tip}>${this.state.tip}</Text>
         </View>
 
-
         {/*Output Party*/}
         <View style={styles.partyContainer}>
-          <Text style={styles.partyHeader}>Current Party</Text>
-          <DisplayParty
-            party={this.state.party}
-          />
+          <View style={styles.partyHeaderContainer}>
+            <View>
+              <Text style={{ padding: 5, fontSize: 20, color: "white" }}>
+                Current Party({this.state.party.length})
+              </Text>
+            </View>
+          </View>
+          <DisplayParty party={this.state.party} />
         </View>
-        
-      </View> 
+      </View>
     );
   }
 }

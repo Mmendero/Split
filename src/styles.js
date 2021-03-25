@@ -66,8 +66,8 @@ const styles = StyleSheet.create({
     fontSize: 50,
   },
   tipText: {
-	fontWeight: "bold",
-	fontSize: 30,
+    fontWeight: "bold",
+    fontSize: 30,
   },
   tipTextContainer: {
     flex: 1,
@@ -124,14 +124,20 @@ const styles = StyleSheet.create({
   },
   members: {
     width: "100%",
-    fontSize: 20,
-    color: "black",
+    flexDirection: "row",
+    justifyContent: "space-between",
     borderWidth: 1,
     padding: 20,
     borderColor: "#cecece",
     backgroundColor: "white",
   },
+  memberListName: {
+    color: "black",
+    fontSize: 20,
+  },
   memberwrapper: {
+    flexDirection: "row",
+    justifyContent: "space-between",
     backgroundColor: "lightgray",
     padding: 5,
   },
